@@ -3,6 +3,7 @@ pipeline {
     environment {
         ECR_REGISTRY = "046402772087.dkr.ecr.us-east-1.amazonaws.com"
         APP_REPO_NAME= "james/to-do-app"
+        PATH="/usr/local/bin/:$(env.PATH)"
     }
     stages {
         stage("Run app on Docker"){
@@ -35,6 +36,9 @@ pipeline {
         always {
             echo 'Deleting all local images'
             sh 'docker image prune -af'
+        }
+        success {
+            echo 'perfect'
         }
     }
 }
