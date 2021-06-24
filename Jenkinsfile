@@ -42,7 +42,7 @@ pipeline {
     }
     post {
         success {
-            echo 'You did it. You are gonna be a good Devops'
+            echo 'You did it. You are gonna be a good Devops-1'
         }
         always {
             echo 'Deleting all local images'
